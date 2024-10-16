@@ -61,7 +61,7 @@ const insertInitialData = async () => {
         serving_size: 1,
         preparation_time: 45,
         is_premium: 0,
-        image: "tacos_picadillo.jpg",
+        image: "tacos-de-picadillo.jpeg",
         category: "tradicional",
         steps:
           "1. Dorar la carne molida de ternera con cebolla y ajo.\n2. Añadir tomate y cilantro.",
@@ -73,7 +73,7 @@ const insertInitialData = async () => {
         serving_size: 1,
         preparation_time: 45,
         is_premium: 0,
-        image: "tacos_heura.jpg",
+        image: "tacos-de-picadillo.jpeg",
         category: "flexi",
         steps:
           "1. Dorar la carne de Heura con cebolla y ajo.\n2. Añadir tomate y cilantro.",
@@ -85,7 +85,7 @@ const insertInitialData = async () => {
         serving_size: 1,
         preparation_time: 60,
         is_premium: 0,
-        image: "flautas_pollo.jpg",
+        image: "fajita-de-pollo.jpg",
         category: "tradicional",
         steps:
           "1. Cocinar la pechuga de pollo y desmenuzarla.\n2. Rellenar las tortillas con el pollo y freírlas.",
@@ -97,7 +97,7 @@ const insertInitialData = async () => {
         serving_size: 1,
         preparation_time: 60,
         is_premium: 0,
-        image: "flautas_tofu.jpg",
+        image: "fajita-de-pollo.jpg",
         category: "flexi",
         steps:
           "1. Rallar el tofu, sazonarlo y cocinarlo.\n2. Rellenar las tortillas con el tofu y freírlas.",
@@ -109,7 +109,7 @@ const insertInitialData = async () => {
         serving_size: 1,
         preparation_time: 40,
         is_premium: 0,
-        image: "tacos_chicharron.jpg",
+        image: "tacos-de-chicharron.jpg",
         category: "tradicional",
         steps:
           "1. Cocinar el chicharrón prensado.\n2. Colocar el chicharrón en las tortillas de maíz.",
@@ -121,7 +121,7 @@ const insertInitialData = async () => {
         serving_size: 2,
         preparation_time: 30,
         is_premium: 0,
-        image: "tacos_tofu.jpg",
+        image: "tacos-de-chicharron.jpg",
         category: "flexi",
         steps:
           "1. Marinar el tofu con salsa de soja, ajo y aceite.\n2. Cocinar el tofu marinado en la air fryer.",

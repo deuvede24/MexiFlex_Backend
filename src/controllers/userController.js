@@ -55,8 +55,8 @@ export const createUser = async (req, res) => {
       });
     }
 
-    // Generar avatar por defecto usando DiceBear
-    const avatar = `https://avatars.dicebear.com/api/initials/${username}.svg`;
+    // Generar avatar por defecto usando la nueva API de DiceBear
+    const avatar = `https://api.dicebear.com/6.x/initials/svg?seed=${username}`;
 
     // Crear un nuevo usuario
     const hashedPassword = await bcrypt.hash(
@@ -166,4 +166,3 @@ export const updateAvatar = async (req, res) => {
     });
   }
 };
-
