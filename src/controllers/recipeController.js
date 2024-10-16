@@ -124,7 +124,7 @@ export const addRecipe = async (req, res) => {
       is_premium,
       serving_size = 1,
       preparation_time = 0,
-      image,
+      //image,
       ingredients,
     } = req.body;
 
@@ -155,6 +155,10 @@ export const addRecipe = async (req, res) => {
       });
     }
 
+
+    // Si hay un archivo de imagen, guárdalo
+    const imagePath = req.file ? req.file.filename : null;
+
     // Creamos la receta
     const newRecipe = await Recipe.create({
       title,
@@ -164,7 +168,8 @@ export const addRecipe = async (req, res) => {
       is_premium,
       serving_size,
       preparation_time,
-      image,
+     // image,
+      image: imagePath,  // Guardamos la ruta de la imagen
     });
 
     console.log("Receta creada con éxito:", newRecipe.id_recipe);

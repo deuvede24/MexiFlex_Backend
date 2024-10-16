@@ -56,7 +56,7 @@ const insertInitialData = async () => {
     const recipeData = [
       {
         id_recipe: 1,
-        title: "Tacos de Picadillo Tradicional",
+        title: "Tacos de Picadillo",
         description: "Tacos tradicionales con carne molida",
         serving_size: 1,
         preparation_time: 45,
@@ -68,7 +68,7 @@ const insertInitialData = async () => {
       },
       {
         id_recipe: 2,
-        title: "Tacos de Picadillo Flexi",
+        title: "Tacos de Picadillo",
         description: "Tacos de picadillo con Picada de Heura",
         serving_size: 1,
         preparation_time: 45,
@@ -80,7 +80,7 @@ const insertInitialData = async () => {
       },
       {
         id_recipe: 3,
-        title: "Flautas de Pollo Tradicional",
+        title: "Flautas de Pollo",
         description: "Flautas tradicionales con pollo",
         serving_size: 1,
         preparation_time: 60,
@@ -92,7 +92,7 @@ const insertInitialData = async () => {
       },
       {
         id_recipe: 4,
-        title: "Flautas de Pollo Flexi",
+        title: "Flautas de Pollo",
         description: "Flautas con tofu.",
         serving_size: 1,
         preparation_time: 60,
@@ -104,7 +104,7 @@ const insertInitialData = async () => {
       },
       {
         id_recipe: 5,
-        title: "Tacos de Chicharrón Tradicional",
+        title: "Tacos de Chicharrón",
         description: "Tacos con chicharrón prensado.",
         serving_size: 1,
         preparation_time: 40,
@@ -116,7 +116,7 @@ const insertInitialData = async () => {
       },
       {
         id_recipe: 6,
-        title: "Tacos de Chicharrón Flexi",
+        title: "Tacos de Chicharrón",
         description: "Tacos de chicharrón de tofu crujiente",
         serving_size: 2,
         preparation_time: 30,

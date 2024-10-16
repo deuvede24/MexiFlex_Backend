@@ -17,6 +17,12 @@ import favoriteRoutes from "./routes/favoriteRoutes.js"; // Nuevas rutas
 import { testConnection } from "./db.js";
 import insertInitialData from "./start_data.js";
 
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+import path from 'path';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
 const app = express();
 
 // Configura CORS para permitir solicitudes desde el frontend
@@ -50,6 +56,9 @@ app.use("/events", eventRoutes);
 // Nuevas rutas para rankings y favoritos
 app.use("/rankings", rankingRoutes); // Rutas para rankings
 app.use("/favorites", favoriteRoutes); // Rutas para favoritos
+
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+
 
 // Iniciar el servidor
 const PORT = 3001;
