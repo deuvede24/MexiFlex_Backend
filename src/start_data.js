@@ -85,7 +85,7 @@ const insertInitialData = async () => {
         serving_size: 1,
         preparation_time: 60,
         is_premium: 0,
-        image: "fajita-de-pollo.jpg",
+        image: "flautas-depollo.jpg",
         category: "tradicional",
         steps:
           "1. Cocinar la pechuga de pollo y desmenuzarla.\n2. Rellenar las tortillas con el pollo y freírlas.",
@@ -97,7 +97,7 @@ const insertInitialData = async () => {
         serving_size: 1,
         preparation_time: 60,
         is_premium: 0,
-        image: "fajita-de-pollo.jpg",
+        image: "flautas-depollo.jpg",
         category: "flexi",
         steps:
           "1. Rallar el tofu, sazonarlo y cocinarlo.\n2. Rellenar las tortillas con el tofu y freírlas.",
