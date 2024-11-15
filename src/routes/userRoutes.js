@@ -1,6 +1,7 @@
 // src/routes/userRoutes.js
-import { Router } from 'express';
+/*import { Router } from 'express';
 import { getUser, getUsers, getUserById, createUser, updateUser, deleteUser, updateAvatar } from '../controllers/userController.js';
+import { getUsers, getUserById, updateUser, deleteUser } from "../controllers/userController.js";
 import { authenticateToken } from '../middlewares/authenticateToken.js';
 import { uploadFileMiddleware } from '../middlewares/upload.js';
 
@@ -21,5 +22,17 @@ router.get('/:id', authenticateToken(), getUserById); // Solo los administradore
 router.post('/', authenticateToken(), createUser); // Solo los administradores pueden crear usuarios
 router.put('/:id', authenticateToken(), updateUser); // Solo los administradores pueden actualizar usuarios
 router.delete('/:id', authenticateToken(), deleteUser); // Solo los administradores pueden eliminar usuarios
+
+export default router;*/
+import { Router } from "express";
+import { getUsers, getUserById, updateUser, deleteUser } from "../controllers/userController.js";
+import { authenticateToken } from "../middlewares/authenticateToken.js";
+
+const router = Router();
+
+router.get("/", authenticateToken, getUsers);
+router.get("/:id", authenticateToken, getUserById);
+router.put("/:id", authenticateToken, updateUser);
+router.delete("/:id", authenticateToken, deleteUser);
 
 export default router;

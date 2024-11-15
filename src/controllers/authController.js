@@ -6,6 +6,11 @@ import RecoveryToken from "../models/recoveryTokenModel.js";
 import sendEmail from "../utils/email/sendEmail.js";
 import { validationResult } from "express-validator";
 import { serialize } from "cookie";
+import admin from 'firebase-admin';
+import { applicationDefault } from 'firebase-admin/app';
+import { getAuth } from 'firebase-admin/auth';
+
+
 
 const clientURL = process.env.CLIENT_URL;
 
@@ -203,3 +208,7 @@ export const checkAuth = async (req, res) => {
     res.status(401).json({ isLoggedIn: false });
   }
 };
+
+
+
+

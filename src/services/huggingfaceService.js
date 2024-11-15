@@ -5,15 +5,17 @@ const hf = new HfInference(process.env.HUGGING_FACE_API_KEY);
 const generateRecipeWithHuggingFace = async (prompt) => {
   try {
     const response = await hf.textGeneration({
-      model: 'EleutherAI/gpt-neo-2.7B',
+      model: 'facebook/opt-350m',  // Cambiamos a un modelo más estable y gratuito
       inputs: prompt,
       parameters: {
-        max_new_tokens: 150,
-      },
+        max_new_tokens: 200,      // Ajustado al límite gratuito
+        temperature: 0.7,         // Balance entre creatividad y consistencia
+        repetition_penalty: 1.2   // Evitar repeticiones manteniendo coherencia
+      }
     });
     return response.generated_text;
   } catch (error) {
-    console.error("Error al llamar a la API de Hugging Face:", error);
+    console.error("Error con Hugging Face:", error);
     throw error;
   }
 };

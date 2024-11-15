@@ -4,6 +4,7 @@ import MapLocation from "../models/mapModel.js";
 export const getMapLocations = async (req, res) => {
   try {
     const locations = await MapLocation.findAll();
+    console.log("Ubicaciones en el backend:", locations); // Log para verificar las ubicaciones
     res.json(locations);
   } catch (error) {
     res

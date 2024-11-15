@@ -4,7 +4,7 @@ import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
 // Obtener detalles del usuario autenticado
-export const getUser = async (req, res) => {
+/*export const getUser = async (req, res) => {
   try {
     if (!req.user) {
       return res
@@ -33,10 +33,10 @@ export const getUser = async (req, res) => {
       message: "Error al obtener los detalles del usuario",
     });
   }
-};
+};*/
 
 // Crear un nuevo usuario
-export const createUser = async (req, res) => {
+/*7export const createUser = async (req, res) => {
   try {
     const { email, password, username } = req.body;
 
@@ -84,7 +84,7 @@ export const createUser = async (req, res) => {
       error: error,
     });
   }
-};
+};*/
 
 // Obtener todos los usuarios
 export const getUsers = async (req, res) => {
