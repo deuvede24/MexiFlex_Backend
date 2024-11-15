@@ -1,5 +1,5 @@
 // src/index.js
-/*import express from "express";
+import express from "express";
 import cookieParser from "cookie-parser";
 import cors from "cors";
 import authRoutes from "./routes/authRoutes.js";
@@ -61,10 +61,10 @@ app.listen(PORT, () => {
   console.log(`Servidor iniciado en el puerto ${PORT}`);
 });
 
-//initializeServer();*/
+//initializeServer();
 
 // src/index.js
-import express from "express";
+/*import express from "express";
 import cookieParser from "cookie-parser";
 import cors from "cors";
 import admin from 'firebase-admin';
@@ -130,4 +130,4 @@ app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 const PORT = 3001;
 app.listen(PORT, () => {
  console.log(`Servidor iniciado en el puerto ${PORT}`);
-});
+});*/
