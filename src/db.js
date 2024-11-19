@@ -1,4 +1,4 @@
-import { Sequelize } from "sequelize";
+/*import { Sequelize } from "sequelize";
 import dotenv from "dotenv";
 
 dotenv.config();
@@ -38,6 +38,37 @@ const testConnection = async () => {
     await syncroModel();
   } catch (error) {
     console.error("Unable to connect to the database:", error);
+  }
+};
+
+export { sequelize, testConnection };*/
+
+import { Sequelize } from "sequelize";
+import dotenv from "dotenv";
+
+dotenv.config();
+
+const sequelize = new Sequelize(
+  process.env.NODE_ENV === 'production' ? process.env.MYSQL_DATABASE : 'mexi_flex',
+  process.env.NODE_ENV === 'production' ? process.env.MYSQL_USER : 'root',
+  process.env.NODE_ENV === 'production' ? process.env.MYSQL_PASSWORD : '',
+  {
+    host: process.env.NODE_ENV === 'production' ? process.env.MYSQL_HOST : 'localhost',
+    dialect: "mysql",
+    port: process.env.NODE_ENV === 'production' ? process.env.MYSQL_PORT : 3306,
+    logging: process.env.NODE_ENV === 'development'
+  }
+);
+
+const testConnection = async () => {
+  try {
+    await sequelize.authenticate();
+    console.log('Database connected');
+    await sequelize.sync();
+    console.log("Database synchronized");
+  } catch (error) {
+    console.error("Connection error:", error);
+    throw error;
   }
 };
 
