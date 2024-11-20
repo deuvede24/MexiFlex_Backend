@@ -43,7 +43,7 @@ const testConnection = async () => {
 
 export { sequelize, testConnection };*/
 
-import { Sequelize } from "sequelize";
+/*import { Sequelize } from "sequelize";
 import dotenv from "dotenv";
 
 dotenv.config();
@@ -59,6 +59,56 @@ const sequelize = new Sequelize(
     logging: process.env.NODE_ENV === 'development'
   }
 );
+console.log("Conectando a la base de datos con:");
+console.log("Host:", process.env.MYSQL_HOST);
+console.log("Base de datos:", process.env.MYSQL_DATABASE);
+console.log("Usuario:", process.env.MYSQL_USER);
+console.log("Puerto:", process.env.MYSQL_PORT);
+
+
+const testConnection = async () => {
+  try {
+    await sequelize.authenticate();
+    console.log('Database connected');
+    await sequelize.sync();
+    console.log("Database synchronized");
+  } catch (error) {
+    console.error("Connection error:", error);
+    throw error;
+  }
+};
+
+export { sequelize, testConnection };*/
+
+import { Sequelize } from "sequelize";
+import dotenv from "dotenv";
+
+dotenv.config();
+
+const sequelize = new Sequelize(
+  process.env.NODE_ENV === 'production' ? process.env.MYSQL_DATABASE : 'mexi_flex',
+  process.env.NODE_ENV === 'production' ? process.env.MYSQL_USER : 'root',
+  process.env.NODE_ENV === 'production' ? process.env.MYSQL_PASSWORD : '',
+  {
+    host: process.env.NODE_ENV === 'production' ? process.env.MYSQL_HOST : 'localhost',
+    dialect: "mysql",
+    port: process.env.NODE_ENV === 'production' ? process.env.MYSQL_PORT : 3306,
+    logging: process.env.NODE_ENV === 'development',
+    dialectOptions: process.env.NODE_ENV === 'production' ? {
+      ssl: {
+        require: true,
+        rejectUnauthorized: false
+      }
+    } : {}
+  }
+);
+
+console.log("Conectando a la base de datos con:");
+console.log("Entorno:", process.env.NODE_ENV);
+console.log("Host:", process.env.NODE_ENV === 'production' ? process.env.MYSQL_HOST : 'localhost');
+console.log("Base de datos:", process.env.NODE_ENV === 'production' ? process.env.MYSQL_DATABASE : 'mexi_flex');
+console.log("Usuario:", process.env.NODE_ENV === 'production' ? process.env.MYSQL_USER : 'root');
+console.log("Puerto:", process.env.NODE_ENV === 'production' ? process.env.MYSQL_PORT : 3306);
 
 const testConnection = async () => {
   try {
