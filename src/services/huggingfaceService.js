@@ -46,3 +46,4 @@ const generateRecipeWithHuggingFace = async (prompt) => {
 };
 
 export default generateRecipeWithHuggingFace;
+//
