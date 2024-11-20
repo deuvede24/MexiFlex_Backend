@@ -85,30 +85,39 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-const sequelize = new Sequelize(
-  process.env.NODE_ENV === 'production' ? process.env.MYSQL_DATABASE : 'mexi_flex',
-  process.env.NODE_ENV === 'production' ? process.env.MYSQL_USER : 'root',
-  process.env.NODE_ENV === 'production' ? process.env.MYSQL_PASSWORD : '',
-  {
-    host: process.env.NODE_ENV === 'production' ? process.env.MYSQL_HOST : 'localhost',
-    dialect: "mysql",
-    port: process.env.NODE_ENV === 'production' ? process.env.MYSQL_PORT : 3306,
-    logging: process.env.NODE_ENV === 'development',
-    dialectOptions: process.env.NODE_ENV === 'production' ? {
-      ssl: {
-        require: true,
-        rejectUnauthorized: false
+const sequelize = process.env.NODE_ENV === 'production' 
+  ? new Sequelize(process.env.DATABASE_URL, {
+      dialect: "mysql",
+      dialectOptions: {
+        ssl: {
+          require: true,
+          rejectUnauthorized: false
+        }
+      },
+      logging: false
+    })
+  : new Sequelize(
+      'mexi_flex',
+      'root',
+      '',
+      {
+        host: 'localhost',
+        dialect: "mysql",
+        port: 3306,
+        logging: true
       }
-    } : {}
-  }
-);
+    );
 
 console.log("Conectando a la base de datos con:");
 console.log("Entorno:", process.env.NODE_ENV);
-console.log("Host:", process.env.NODE_ENV === 'production' ? process.env.MYSQL_HOST : 'localhost');
-console.log("Base de datos:", process.env.NODE_ENV === 'production' ? process.env.MYSQL_DATABASE : 'mexi_flex');
-console.log("Usuario:", process.env.NODE_ENV === 'production' ? process.env.MYSQL_USER : 'root');
-console.log("Puerto:", process.env.NODE_ENV === 'production' ? process.env.MYSQL_PORT : 3306);
+if (process.env.NODE_ENV === 'production') {
+  console.log("URL de conexión: (usando DATABASE_URL)");
+} else {
+  console.log("Host: localhost");
+  console.log("Base de datos: mexi_flex");
+  console.log("Usuario: root");
+  console.log("Puerto: 3306");
+}
 
 const testConnection = async () => {
   try {
