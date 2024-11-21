@@ -114,6 +114,8 @@ import generateRecipeWithHuggingFace from "../services/huggingfaceService.js";
 
 export const generateRecipeWithAI = async (req, res) => {
   try {
+    console.log("Starting recipe generation...");
+    console.log("Request body:", req.body);
     const { ingredients, recipeType } = req.body;
 
     // Validación mejorada
