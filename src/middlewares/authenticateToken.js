@@ -4,6 +4,8 @@ import User from '../models/userModel.js';
 
 export const authenticateToken = () => async (req, res, next) => {
   try {
+    console.log('Cookies received:', req.cookies);
+    console.log('Headers:', req.headers);
     const { cookies } = req;
     const accessToken = cookies.token;
 
