@@ -817,3 +817,52 @@ export const deleteRecipe = async (req, res) => {
     });
   }
 };
+
+export const getSharedRecipe = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const recipe = await Recipe.findByPk(id, {
+      include: RecipeIngredient,
+    });
+
+    if (!recipe) {
+      return res.status(404).json({
+        code: -3,
+        message: "Recipe not found",
+      });
+    }
+
+    // Si es una receta hardcodeada (21-24), devolver completa
+    if (recipe.id_recipe >= 21 && recipe.id_recipe <= 24) {
+      return res.status(200).json({
+        code: 1,
+        message: "Recipe retrieved successfully",
+        data: recipe,
+      });
+    }
+
+    // Para las demás, devolver vista previa
+    return res.status(200).json({
+      code: 1,
+      message: "Recipe preview retrieved successfully",
+      data: {
+        id_recipe: recipe.id_recipe,
+        title: recipe.title,
+        image: recipe.image,
+        description: recipe.description,
+        preparation_time: recipe.preparation_time,
+        serving_size: recipe.serving_size,
+        RecipeIngredients: recipe.RecipeIngredients.slice(0, 3),
+        category: recipe.category,
+        isPreview: true
+      }
+    });
+
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({
+      code: -100,
+      message: "Error retrieving recipe",
+    });
+  }
+};
