@@ -27,7 +27,9 @@ const openaiService = async (prompt) => {
   }
 };
 
-export default openaiService;*/// src/services/openaiService.js
+export default openaiService;*/
+
+// src/services/openaiService.js
 import 'dotenv/config';
 import OpenAI from 'openai';
 
