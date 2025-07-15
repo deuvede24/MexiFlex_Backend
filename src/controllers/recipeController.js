@@ -93,7 +93,7 @@ PASOS:
           quantity: "2 cucharadas",
         })),
       ],
-      steps: steps, // Usamos los pasos específicos
+      steps: steps, // Usamos los steps específicos
     };
 
     res.status(200).json({
