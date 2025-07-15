@@ -3,6 +3,7 @@ import RecipeIngredient from "../models/recipeIngredientModel.js";
 import { validationResult } from "express-validator";
 import openaiService from "../services/openaiService.js";
 import generateRecipeWithHuggingFace from "../services/huggingfaceService.js";
+import generateRecipeWithOpenAI    from "../services/openaiService.js";
 
 
 export const generateRecipeWithAI = async (req, res) => {
@@ -19,7 +20,7 @@ export const generateRecipeWithAI = async (req, res) => {
       });
     }
 
-    // Prompt más conciso y directo
+    // Prompt conciso y directo
     const prompt = `Genera una receta mexicana de ${recipeType}:
 
 Ingredientes disponibles:
@@ -42,7 +43,8 @@ PASOS:
 4. Montar platillo
 5. Servir y decorar`;
 
-    const generatedRecipeText = await generateRecipeWithHuggingFace(prompt);
+  //  const generatedRecipeText = await generateRecipeWithHuggingFace(prompt);
+    const generatedRecipeText = await generateRecipeWithOpenAI(prompt);
     const steps = [
       `Preparar ${ingredients.proteins.join(
         " y "
